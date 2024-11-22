@@ -57,7 +57,7 @@ class professor(person):
 ID: {self.staffid}
 DEPARTMENT: {self.department}
 salary: {self.salary}""")
-    def increase_salary(self, salary):
+    def increase_salary(self):
         new_salary = int(self.salary) * 1.1
         print(f"{self.name}'s salary increased from {self.salary} into {new_salary}")
 class administrator(person):
