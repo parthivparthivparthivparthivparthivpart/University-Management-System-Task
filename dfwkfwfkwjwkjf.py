@@ -73,12 +73,14 @@ class administrator(person):
         self.yos = int(input("How many years of service?: "))
     def increment_service_years(self):
         self.yos += 1
+        print(f'1 year of service added!!!!!')
     def get_admin_summary(self):
         super().get_details()
         print(f"""
 ID: {self.adminid}
 office: {self.office}
 years of service: {self.yos}""")
+        
 a = professor('', '', '', '', '', '')
 a.set_professor_details()
 a.increase_salary()
@@ -99,13 +101,5 @@ a.give_feedback(b.name, 'You need to get better at school buddy')
 a.give_feedback(d.name, 'Nerd')
 c = administrator('', '', '', '', '', '')
 c.set_admin_details()
-c.increment_service_years
+c.increment_service_years()
 c.get_admin_summary()
-
-
-
-
-
-
-
-
