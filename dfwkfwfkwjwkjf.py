@@ -37,6 +37,11 @@ class Student(person):
 Student id: {self.Student_id}
 student's course: {self.course}
 student's grade average: {av}""")
+    def get_mentor(self, professor):
+        if self.name in professor.teach:
+            print(f"{self.name} is getting mentoored by {professor.name}")
+        else:
+            print(f'{self.name} has no mentoor')
 
 class professor(person):
     def __init__(self, name, age, gender, staff_id, department, salary):
@@ -44,6 +49,7 @@ class professor(person):
         self.staffid = staff_id
         self.department = department
         self.salary = salary
+        self.teach = []
     def set_professor_details(self):
         super().set_details()
         self.staffid = input("What is their id?: ")
@@ -57,6 +63,11 @@ class professor(person):
 ID: {self.staffid}
 DEPARTMENT: {self.department}
 salary: {self.salary}""")
+    def mentor_student(self, student):
+        print(f'Professor {self.name} is now mentooring {student.name} in {student.course}')
+        (self.teach).append(student.name)
+    def get_mentored_students(self):
+        print(self.teach)
     def increase_salary(self):
         new_salary = int(self.salary) * 1.1
         print(f"{self.name}'s salary increased from {self.salary} into {new_salary}")
@@ -103,3 +114,7 @@ c = administrator('', '', '', '', '', '')
 c.set_admin_details()
 c.increment_service_years()
 c.get_admin_summary()
+a.mentor_student(b)
+a.mentor_student(d)
+b.get_mentor(a)
+a.get_mentored_students()
